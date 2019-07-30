@@ -1,0 +1,95 @@
+
+Create Database in Cloud Firestore
+https://console.firebase.google.com
+
+ID do client da Web:
+874036221463-40v1dfqisia5tqtehhf2nsjuf04lam9j.apps.googleusercontent.com
+
+Run this command at least once before adding the @angular/PWA
+https://alligator.io/ionic/pwas/
+The followeing step is to produce you web folder:
+$ ionic build --prod 
+
+Install @angular/PWA
+$ npm install @angular/pwa
+
+Rebuild your ionic
+$ ionic build --prod
+
+Deploying Your New PWA
+$ npm install -g firebase-tools
+$ firebase init
+
+firebase.json
+                {
+                "hosting": {
+                    "public": "www",
+                    "ignore": [
+                    "firebase.json",
+                    "**/.*",
+                    "**/node_modules/**"
+                    ],
+                    "rewrites": [   
+                    {
+                        "source": "**",
+                        "destination": "/index.html"
+                    }
+                    ],
+                    "headers": [
+                    {
+                        "source": "/build/app/**",
+                        "headers": [
+                        {
+                            "key": "Cache-Control",
+                            "value": "public, max-age=31536000"
+                        }
+                        ]
+                    },
+                    {
+                        "source": "sw.js",
+                        "headers": [
+                        {
+                            "key": "Cache-Control",
+                            "value": "no-cache"
+                        }
+                        ]
+                    }
+                    ]
+                }
+                }
+
+Finally, 
+$ firebase deploy
+
+Important: don't forget configure Credentials and Logo of application
+https://console.cloud.google.com/iam-admin/serviceaccounts/details/113473645418930290736;edit=true?authuser=1&project=rock-bonus-247016
+
+https://console.developers.google.com/apis/credentials/consent?project=rock-bonus-247016&angularJsUrl=%2Fapis%2Fcredentials%2Fconsent%3Fproject%3D874036221463&authuser=1&duration=P1D
+
+Project Console: https://console.firebase.google.com/project/rock-bonus-247016/overview
+Hosting URL: https://rock-bonus-247016.firebaseapp.com
+
+Get customer id:
+https://admin.google.com/gedu.demo.mstech.com.br/AdminHome#SecuritySettings:flyout=sso
+
+Redirecionamento:
+https://console.developers.google.com/apis/credentials/oauthclient/874036221463-40v1dfqisia5tqtehhf2nsjuf04lam9j.apps.googleusercontent.com?project=rock-bonus-247016&authuser=1
+
+directory.groups.list:
+https://developers.google.com/apis-explorer/?hl=pt_BR#search/directory/admin/directory_v1/directory.groups.list?customer=C04iwevv4&_h=3&
+
+directory.members.hasMember:
+https://developers.google.com/apis-explorer/?hl=pt_BR#search/directory/admin/directory_v1/directory.members.hasMember?groupKey=02jxsxqh1ewkirf&memberKey=silvio.limeira%2540gedu.demo.mstech.com.br&_h=6&
+
+Configurar Logon único (SSO):
+https://admin.google.com/gedu.demo.mstech.com.br/AdminHome?fral=1#SecuritySettings:flyout=sso
+
+Console Firebase:
+console.firebase.google.com
+
+Google for Education
+https://teachercenter.withgoogle.com/training
+
+How to use external JS files and JavaScript code in Angular 6/7
+https://www.truecodex.com/course/angular-6/how-to-use-external-js-files-and-javascript-code-in-angular
+

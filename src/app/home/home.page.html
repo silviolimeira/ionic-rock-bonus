@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    The world is your oyster.
+    <p>
+      If you get lost, the
+      <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/"
+        >docs</a
+      >
+      will be your guide.
+    </p>
+  </div>
+  <ion-row>
+    <!-- <firebase-ui></firebase-ui> -->
+    <ion-button *ngIf="!afAuth.auth.currentUser" (click)="googleSignin()"
+      >Sign In</ion-button
+    >
+    <ion-button *ngIf="afAuth.auth.currentUser" (click)="makeRequest()"
+      >Make request</ion-button
+    >
+
+    <h1 *ngIf="afAuth.auth.currentUser">
+      Welcome {{ afAuth.auth.currentUser.displayName }} Id:
+      {{ afAuth.auth.currentUser.uid }}!
+    </h1>
+
+    <ion-button *ngIf="afAuth.auth.currentUser" (click)="signOut()"
+      >Sign Out</ion-button
+    >
+  </ion-row>
+</ion-content>
